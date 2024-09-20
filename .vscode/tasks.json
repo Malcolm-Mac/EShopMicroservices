@@ -96,6 +96,42 @@
             "netCore": {
                 "appProject": "${workspaceFolder}/src/Services/Catalog/Catalog.API/Catalog.API.csproj"
             }
+        },
+        {
+            "type": "shell",
+            "label": "compose-up-override",
+            "command": "docker compose -f docker-compose.yml -f docker-compose.override.yml  up -d --build",
+            "presentation": {
+              "reveal": "always",
+              "panel": "new"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "compose-up-dev",
+            "command": "docker compose -f docker-compose.yml -f docker-compose.debug.yml -f docker-compose.dev.yml up -d --build",
+            "presentation": {
+              "reveal": "always",
+              "panel": "new"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "compose-up-test",
+            "command": "docker compose -f docker-compose.yml -f docker-compose.debug.yml -f docker-compose.test.yml up -d --build",
+            "presentation": {
+              "reveal": "always",
+              "panel": "new"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "compose-up-prod",
+            "command": "docker compose -f docker-compose.yml -f docker-compose.release.yml -f docker-compose.prod.yml up -d --build",
+            "presentation": {
+              "reveal": "always",
+              "panel": "new"
+            }
         }
     ]
 }
