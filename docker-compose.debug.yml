@@ -3,15 +3,15 @@
 version: '3.4'
 
 services:
-  catalogapi:
-    image: catalogapi
+  basketapi:
+    image: basketapi
     build:
       context: .
-      dockerfile: src/Services/Catalog/Catalog.API/Dockerfile
+      dockerfile: src/Services/Basket/Basket.API/Dockerfile
       args:
         - configuration=Debug
     ports:
-      - 5000:5000
+      - 5001:5001
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     volumes:

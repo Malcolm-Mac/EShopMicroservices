@@ -1,0 +1,6 @@
+[
+  {
+    "type": "sqlite",
+    "path": "/Users/malcolmtsimo/Projects/EShopMicroservices/src/Services/Discount/Discount.Grpc/discountdb"
+  }
+]
