@@ -50,19 +50,42 @@
         }
       },
       {
-        "name": "Docker .NET Launch (Basket API)",
-        "type": "docker",
+        "name": ".NET Core Launch (Basket API)",
+        "type": "coreclr",
         "request": "launch",
-        "preLaunchTask": "docker-run: debug",
-        "netCore": {
-          "appProject": "${workspaceFolder}/src/Services/Basket/Basket.API/Basket.API.csproj"
-        }
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/src/Services/Basket/Basket.API/bin/Debug/net8.0/Basket.API.dll",
+        "args": [],
+        "cwd": "${workspaceFolder}/src/Services/Basket/Basket.API",
+        "stopAtEntry": false,
+        "serverReadyAction": {
+          "action": "openExternally",
+          "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+        },
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        },
+        "sourceFileMap": {
+          "/Views": "${workspaceFolder}/Views"
+        },
+        "justMyCode": false
       },
       {
         "name": ".NET Core Attach",
         "type": "coreclr",
         "request": "attach"
       }
+    ],
+    "compounds": [
+      {
+        "name": "Discount and Basket Integration",
+        "configurations": [
+          ".NET Core Launch (Discount Grpc)",
+          ".NET Core Launch (Basket API)",
+        ],
+        "stopAll": true
+      }
     ]
+  
   }
   
