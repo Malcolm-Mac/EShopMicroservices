@@ -1,17 +1,22 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-
-namespace Ordering.Infrastructure;
-
+﻿namespace Ordering.Infrastructure;
 public static class DependencyInjection
 {
-public static IServiceCollection AddInfrustructureServices(this IServiceCollection services, IConfiguration configuration){
-    var connectionString = configuration.GetConnectionString("Database");
-    /* services.AddDbContext<ApplicationDbContext>(Options =>
-    Options.UseSqlServer(connectionString));
+    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+    {
+        var connectionString = configuration.GetConnectionString("Database");
 
-    services.AddScoped<IApplicationDbContext, ApplicationDbContext>(); */
-    return services;
-}
+        services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
+        services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
+
+        services.AddDbContext<ApplicationDbContext>(
+            (serviceProvider, options) =>
+            {
+                options.AddInterceptors(serviceProvider.GetServices<ISaveChangesInterceptor>());
+                options.UseSqlServer(connectionString);
+            }
+        );
+
+        //services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+        return services;
+    }
 }

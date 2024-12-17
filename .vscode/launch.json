@@ -71,6 +71,27 @@
         "justMyCode": false
       },
       {
+        "name": ".NET Core Launch (Ordering API)",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/src/Services/Ordering/Ordering.API/bin/Debug/net8.0/Ordering.API.dll",
+        "args": [],
+        "cwd": "${workspaceFolder}/src/Services/Ordering/Ordering.API",
+        "stopAtEntry": false,
+        "serverReadyAction": {
+          "action": "openExternally",
+          "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+        },
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        },
+        "sourceFileMap": {
+          "/Views": "${workspaceFolder}/Views"
+        },
+        "justMyCode": false
+      },
+      {
         "name": ".NET Core Attach",
         "type": "coreclr",
         "request": "attach"
