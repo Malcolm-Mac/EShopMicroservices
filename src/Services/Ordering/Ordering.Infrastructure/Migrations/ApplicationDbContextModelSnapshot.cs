@@ -82,7 +82,7 @@ namespace Ordering.Infrastructure.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
-                        .HasDefaultValue("Unspecified");
+                        .HasDefaultValue("Pending");
 
                     b.Property<decimal>("TotalPrice")
                         .HasPrecision(18, 2)

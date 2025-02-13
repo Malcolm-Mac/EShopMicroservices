@@ -16,7 +16,7 @@ public static class DependencyInjection
             }
         );
 
-        //services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+        services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
         return services;
     }
 }

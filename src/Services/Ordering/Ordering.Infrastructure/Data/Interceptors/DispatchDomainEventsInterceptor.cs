@@ -1,6 +1,11 @@
 ﻿namespace Ordering.Infrastructure.Data.Interceptors;
-public class DispatchDomainEventsInterceptor(IMediator mediator) : SaveChangesInterceptor
+public class DispatchDomainEventsInterceptor : SaveChangesInterceptor
 {
+    protected IMediator mediator;
+    public DispatchDomainEventsInterceptor(IMediator mediator)
+    {
+        this.mediator = mediator;
+    }
     public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
     {
         DispatchDomainEvents(eventData.Context).GetAwaiter().GetResult();
@@ -24,9 +29,9 @@ public class DispatchDomainEventsInterceptor(IMediator mediator) : SaveChangesIn
                         .SelectMany(a => a.DomainEvents)
                         .ToList();
 
-        aggregates.ToList().ForEach(a=>a.ClearDomainEvents());
+        aggregates.ToList().ForEach(a => a.ClearDomainEvents());
 
-        foreach(var domainEvent in domainEvents)
+        foreach (var domainEvent in domainEvents)
         {
             await mediator.Publish(domainEvent);
         }

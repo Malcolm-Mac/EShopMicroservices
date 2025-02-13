@@ -41,11 +41,4 @@ new HealthCheckOptions
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
 
-for (var i = 0; i < 5; i++)
-{
-    Guid newGuid = Guid.NewGuid();
-    Console.WriteLine($"Generated GUID {i + 1}: {newGuid}");
-}
-
-
 app.Run();

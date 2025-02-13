@@ -1,7 +1,5 @@
 # Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
 
-version: '3.4'
-
 services:
   basketapi:
     image: basketapi
@@ -12,6 +10,20 @@ services:
         - configuration=Debug
     ports:
       - 5001:5001
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ~/.vsdbg:/remote_debugger:rw
+  
+  orderingapi:
+    image: orderingapi
+    build:
+      context: .
+      dockerfile: src/Services/Ordering/Ordering.API/Dockerfile
+      args:
+        - configuration=Debug
+    ports:
+      - 5002:5002
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     volumes:

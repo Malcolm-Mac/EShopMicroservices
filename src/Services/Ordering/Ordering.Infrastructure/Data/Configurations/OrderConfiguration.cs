@@ -110,7 +110,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
         );
 
         builder.Property(o => o.Status)
-        .HasDefaultValue(OrderStatus.Unspecified)
+        .HasDefaultValue(OrderStatus.Pending)
         .HasConversion(
             s => s.ToString(),
             dbStatus => (OrderStatus)Enum.Parse(typeof(OrderStatus), dbStatus)
