@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
       {
         "name": ".NET Core Launch (Catalog API)",
         "type": "coreclr",
@@ -99,10 +100,11 @@
     ],
     "compounds": [
       {
-        "name": "Discount and Basket Integration",
+        "name": "Discount, Ordering and Basket Integration",
         "configurations": [
           ".NET Core Launch (Discount Grpc)",
           ".NET Core Launch (Basket API)",
+          ".NET Core Launch (Ordering API)"
         ],
         "stopAll": true
       }

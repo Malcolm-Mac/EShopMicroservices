@@ -9,7 +9,6 @@ public class CreateOrderHandler(IApplicationDbContext dbContext) : ICommandHandl
 
         return new CreateOrderResult(order.Id.Value);
     }
-
     public static Order CreateNewOrder(OrderDto orderDto)
     {
         var shippingAddress = Address.Of(

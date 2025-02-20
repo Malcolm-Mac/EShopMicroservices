@@ -57,4 +57,5 @@ public class Order : Aggregate<OrderId>
             _orderItems.Remove(orderItem);
         }
     }
+
 }

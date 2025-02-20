@@ -1,8 +1,5 @@
-using Discount.Grpc;
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
 
 //Application Services
 var assembly = typeof(Program).Assembly;
@@ -45,6 +42,8 @@ builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(
     };
     return handler;
 });
+//Async communication services
+builder.Services.AddMessageBroker(builder.Configuration);
 
 //Cross-Cutting Services
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();

@@ -3,7 +3,7 @@ namespace Ordering.API.Endpoints;
 //TODO - Accepts a customer ID
 //TODO - Uses a GetOrdersByCustomerQuery to fetch orders
 //TODO - Returns the list of orders for that customer
-public record GetOrdersByCustomerRequest(Guid CustomerId);
+//public record GetOrdersByCustomerRequest(Guid CustomerId);
 public record GetOrdersByCustomerResponse(IEnumerable<OrderDto> Orders);
 public class GetOrdersByCustomer : ICarterModule
 {
