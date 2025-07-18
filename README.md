@@ -130,8 +130,8 @@ The **Vertical Slice Architecture** used in the Basket Microservice organizes th
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/ecommerce-microservices.git
-   cd ecommerce-microservices
+   git clone https://github.com/Malcolm-Mac/EShopMicroservices.git
+   cd EShopMicroservices
    ```
 
 2. Build and run the Docker containers:
