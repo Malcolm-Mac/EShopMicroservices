@@ -91,6 +91,39 @@ A front-end client application that interacts with the API Gateway, leveraging *
 
   * Uses the **YARP Reverse Proxy** to access endpoints from different microservices
 
+### 5. **Catalog Microservice**
+
+This microservice handles product information, including retrieving product details, categories, and pricing. It acts as the central point for the product catalog in the eCommerce platform.
+
+* **Technologies:**
+
+  * **.NET 8, C# 12**
+  * **Microsoft SQL Server for product data storage**
+  * **Entity Framework Core for database interactions**
+  * **MediatR**
+  * **Mapster**
+  * **Dockerized**
+
+* **Endpoints:**
+
+  * Get All Products: Fetches the entire product catalog.
+
+  * Get Product by ID: Fetches detailed information about a specific product.
+
+  * Get Categories: Retrieves available product categories.
+
+* **Design Patterns:**
+
+  * CQRS: Separation of read and write operations, especially useful as the catalog data grows and changes.
+
+  * Repository Pattern: Abstracts database operations to make the code more maintainable.
+
+* **Communication:**
+
+  * Catalog Microservice provides product information to other microservices like Basket and Ordering.
+
+  * The API Gateway (via YARP) routes requests to the appropriate Catalog endpoints.
+
 ---
 
 ## Architecture
