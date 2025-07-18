@@ -7,11 +7,48 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages/Cart.cshtml" />
+    <Content Remove="Pages/Confirmation.cshtml" />
+    <Content Remove="Pages/ProductDetail.cshtml" />
+    <Content Remove="Pages/ProductList.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Models/Catalog/" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Refit.HttpClientFactory" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages/Cart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages/Cart.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages/Confirmation.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages/ProductDetail.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages/ProductList.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages/Cart.cshtml" />
+    <None Include="Pages/Confirmation.cshtml" />
+    <None Include="Pages/ProductDetail.cshtml" />
+    <None Include="Pages/ProductList.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages/ProductList.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages/ProductDetail.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages/Confirmation.cshtml" />
   </ItemGroup>
 
 </Project>

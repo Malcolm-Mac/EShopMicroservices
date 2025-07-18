@@ -1,7 +1,7 @@
 ﻿namespace Shopping.Web.Models.Basket;
 public class BasketCheckoutModel
 {
-    public string Username { get; set; } = default!;
+    public string UserName { get; set; } = default!;
     public Guid CustomerId { get; set; } = default!;
     public decimal TotalPrice { get; set; } = default!;
     //!SECTION - Shipping and Billing Address

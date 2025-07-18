@@ -1,5 +1,5 @@
 ﻿namespace Shopping.Web.Models.Ordering;
-public record OrderingModel
+public record OrderModel
 (
     Guid Id,
     Guid CustomerId,
@@ -43,9 +43,9 @@ public record OrderItemDto
     int Quantity,
     decimal Price
 );
-public record CreateOrderRequest(OrderingModel Order);
+public record CreateOrderRequest(OrderModel Order);
 public record CreateOrderResponse(Guid Id);
 public record DeleteOrderResponse(bool IsSuccess);
-public record GetOrdersResponse(PaginatedResult<OrderingModel> Orders);
-public record GetOrdersByNameResponse(IEnumerable<OrderingModel> Orders);
-public record GetOrdersByCustomerResponse(IEnumerable<OrderingModel> Orders);
+public record GetOrdersResponse(PaginatedResult<OrderModel> Orders);
+public record GetOrdersByNameResponse(IEnumerable<OrderModel> Orders);
+public record GetOrdersByCustomerResponse(IEnumerable<OrderModel> Orders);

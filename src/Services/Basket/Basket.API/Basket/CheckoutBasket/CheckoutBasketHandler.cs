@@ -8,14 +8,14 @@ public class CheckoutBasketCommandValidator : AbstractValidator<CheckoutBasketCo
     public CheckoutBasketCommandValidator()
     {
         RuleFor(x=>x.BasketCheckoutDto).NotNull().WithMessage("BasketCheckoutDto cannot be null");
-        RuleFor(x=>x.BasketCheckoutDto.Username).NotEmpty().WithMessage("Username is required");
+        RuleFor(x=>x.BasketCheckoutDto.UserName).NotEmpty().WithMessage("Username is required");
     }
 }
 public class CheckoutBasketCommandHandler(IBasketRepository basketRepository, IPublishEndpoint publishEndpoint) : ICommandHandler<CheckoutBasketCommand, CheckoutBasketResult>
 {
     public async Task<CheckoutBasketResult> Handle(CheckoutBasketCommand command, CancellationToken cancellationToken)
     {
-        var basket = await basketRepository.GetBasket(command.BasketCheckoutDto.Username,cancellationToken);
+        var basket = await basketRepository.GetBasket(command.BasketCheckoutDto.UserName,cancellationToken);
         if(basket == null)
         {
             return new CheckoutBasketResult(false);
@@ -26,7 +26,7 @@ public class CheckoutBasketCommandHandler(IBasketRepository basketRepository, IP
 
         await publishEndpoint.Publish(eventMessage, cancellationToken);
 
-        await basketRepository.DeleteBasket(command.BasketCheckoutDto.Username, cancellationToken);
+        await basketRepository.DeleteBasket(command.BasketCheckoutDto.UserName, cancellationToken);
 
         return new CheckoutBasketResult(true);
     }
